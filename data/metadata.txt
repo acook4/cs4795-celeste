@@ -1,0 +1,33 @@
+ALL X AND Y COORDINATES START WITH TOP LEFT CORNER AT 0,0, BOTTOM RIGHT AT 19,10
+
+levels.txt and test_levels.txt
+-contains a series of levels in 20x11 bits, with the player's respawn position X Y and goal position X Y
+
+all_trainin.txt and all_testin.txt
+-one-dimensional input values to a neural network
+-contains 225 values:
+--20x11=220 values representing the level
+--X and Y coordinates for current position and goal position
+--one value for bias
+
+2d_trainin.txt and 2d_testin.txt
+-two-dimensional input values to a neural network
+-the same levels and current position as in their one-dimensional counterparts
+-contains 220 values in a 20x11 matrix:
+--0.0 if that grid spot is empty
+--0.33 if that grid spot if blocked
+--0.66 for current player position
+--1.0 for goal position
+
+
+all_trainout.txt and all_testout.txt
+-contains four non-exclusive values representing U D L R
+-desired output of that row's input in all_trainin.txt and all_testin.txt, respectively
+-can also be used with 2d_trainin.txt, 2d_testin.txt
+
+
+all_trainout_8.txt and all_testout_8.txt
+-contains eight exclusive values representing U D L R UL UR DL DR
+-adapted from all_trainout.txt and all_testout.txt with write_output_8vec.py
+-desired output of that row's input in all_trainin.txt and all_testin.txt, respectively
+-can also be used with 2d_trainin.txt and 2d_testin.txt
